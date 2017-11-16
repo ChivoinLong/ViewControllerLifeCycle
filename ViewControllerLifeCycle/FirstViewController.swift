@@ -12,12 +12,30 @@ class FirstViewController: UIViewController {
 
     
     //
-    //  Just Override Events below
+    //  Just Override ViewController Events below
     //  show() & showDetailViewController() not working
     //
     
     private let TAG = "FIRST:"
     private var order = 1
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        print("\(TAG) init(nibName: nibNameOrNil, bundle: nibBundleOrNil) called \(order)")
+        order += 1
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        print("\(TAG) init(coder: aDecoder) called \(order)")
+        order += 1
+        //        fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        print("\(TAG) deinit() called \(order)")
+        order += 1
+    }
     
     
     override func loadView() {
